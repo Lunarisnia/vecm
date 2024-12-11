@@ -68,3 +68,9 @@ func Normalize(a vecm.Vector3f) vecm.Vector3f {
 	length := Length(a)
 	return Divide(a, length)
 }
+
+// Reflect the incident ray
+func Reflect(a vecm.Vector3f, normal vecm.Vector3f) vecm.Vector3f {
+	coef := Scale(normal, 2.0*Dot(a, normal))
+	return Subtract(a, coef)
+}
